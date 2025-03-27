@@ -1,6 +1,5 @@
 import streamlit as st
 from utils.interaction import interaction_manager
-from utils.html_processing import HtmlProcessing
 from langchain.memory import ChatMessageHistory
 import json
 
@@ -77,7 +76,7 @@ def main():
         if st.session_state.customized_html:
             with st.chat_message("assistant"):
                 st.markdown("Your Lnadpage is ready!")
-                HtmlProcessing.save_html('new_placeholder.html', st.session_state.customized_html)
+                st.download_button(label="Download HTML", data=st.session_state.customized_html, file_name='new_placeholder.html', on_click='ignore', type="tertiary")
 
 
 if __name__ == "__main__":
