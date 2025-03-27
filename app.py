@@ -6,9 +6,6 @@ import json
 
 st.set_page_config(page_title="Web Editor", page_icon="💻", layout="centered")
 
-# Initialize html processor
-html_processor = HtmlProcessing(r'placeholder.html')
-
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
@@ -80,7 +77,7 @@ def main():
         if st.session_state.customized_html:
             with st.chat_message("assistant"):
                 st.markdown("Your Lnadpage is ready!")
-                html_processor.save_html('new_placeholder.html', st.session_state.customized_html)
+                HtmlProcessing.save_html('new_placeholder.html', st.session_state.customized_html)
 
 
 if __name__ == "__main__":
